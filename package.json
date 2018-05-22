@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js"
+    "build-client": "webpack",
+    "build-client-watch": "webpack -w",
+    "start": "node server.js",
+    "start-dev": "npm run build-client-watch & npm run start-server",
+    "start-server": "nodemon server.js -e html,js,scss --ignore public --ignore client"
   },
   "keywords": [],
   "author": "",
@@ -12,5 +16,14 @@
   "dependencies": {
     "express": "^4.16.3",
     "socket.io": "^2.1.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "nodemon": "^1.17.4",
+    "webpack": "^4.8.3",
+    "webpack-cli": "^2.1.3"
   }
 }
