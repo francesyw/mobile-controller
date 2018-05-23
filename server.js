@@ -12,6 +12,10 @@ const io = socketio(server);
 io.on('connection', socket => {
   console.log(`New socket: ${socket.id}`);
 
+  socket.on('deviceInfo', (alpha, beta, gamma) => {
+    console.log('alpha: ', alpha, ' | beta: ', beta, ' | gamma: ', gamma);
+  })
+
   socket.on('disconnect', () => {
     console.log(`Socket ${socket.id} just left`);
   });
