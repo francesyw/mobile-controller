@@ -5,10 +5,12 @@ socket.on('connect', () => {
 });
 
 function setup() {
-  let cnv = createCanvas(500, 500);
+  let cnv = createCanvas(500, 500, WEBGL);
   cnv.position((windowWidth - width)/2, 130);
 }
 
 function draw() {
-  background(220);
+  background(0);
+  normalMaterial();
+  box(150);
 }
