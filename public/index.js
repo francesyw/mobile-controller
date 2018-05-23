@@ -1,9 +1,8 @@
 const socket = io.connect(window.location.origin);
-
+let [degX, degY, degZ] = [0, 0, 0];
 socket.on('connect', () => {
-  console.log('browser connected to server');
   socket.on('boxChanges', (alpha, beta, gamma) => {
-    // console.log('alpha: ', alpha, ' | beta: ', beta, ' | gamma: ', gamma);
+    [degY, degX, degZ] = [-alpha, -beta, gamma];
   })
 });
 
@@ -15,5 +14,8 @@ function setup() {
 function draw() {
   background(0);
   normalMaterial();
+  rotateY(radians(degY));
+  rotateX(radians(degX));
+  rotateZ(radians(degZ));
   box(150);
 }
