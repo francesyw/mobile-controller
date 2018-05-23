@@ -1,5 +1,5 @@
 const socket = io.connect(window.location.origin);
 
 socket.on('connect', () => {
-  console.log('connected to server');
+  console.log('browser connected to server');
 });
